@@ -13,22 +13,19 @@ public class ContactsManagerTest {
     public void setup(){
         SUT = new ContactsManager();
         person = new Contact();
-        person.name = "Zenzo Arian";
-        person.email = "25453.ma-web.nl";
-        person.phoneNumber = "12345678";
     }
 
     @Test
     public void addContact_addPerson_checkName(){
         SUT.addContact(person);
-        String result = SUT.myFriends[0].name;
-        assertThat(result, is(person.name));
+        String result = SUT.myFriends[0].getName();
+        assertThat(result, is(person.getName()));
     }
 
     @Test
     public void addContact_addPerson_checkPhoneNumber(){
         SUT.addContact(person);
-        String result = SUT.myFriends[0].phoneNumber;
-        assertThat(result, is(person.phoneNumber));
+        String result = SUT.myFriends[0].getPhoneNumber();
+        assertThat(result, is(person.getPhoneNumber()));
     }
 }
