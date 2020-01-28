@@ -1,7 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 
 public class ContactsManagerTest {
@@ -18,14 +17,16 @@ public class ContactsManagerTest {
     @Test
     public void addContact_addPerson_checkName(){
         SUT.addContact(person);
-        String result = SUT.myFriends[0].getName();
+        Contact search = SUT.searchContact(person.getName());
+        String result = search.getName();
         assertThat(result, is(person.getName()));
     }
 
     @Test
     public void addContact_addPerson_checkPhoneNumber(){
         SUT.addContact(person);
-        String result = SUT.myFriends[0].getPhoneNumber();
+        Contact search = SUT.searchContact(person.getName());
+        String result = search.getPhoneNumber();
         assertThat(result, is(person.getPhoneNumber()));
     }
 }
